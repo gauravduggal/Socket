@@ -21,7 +21,7 @@ int main(int argc, char**argv)
    sockfd=socket(AF_INET,SOCK_DGRAM,0);
 
    bzero(&servaddr,sizeof(servaddr));
-   servaddr.sin_family = AF_INET;q
+   servaddr.sin_family = AF_INET;
    servaddr.sin_addr.s_addr=inet_addr(argv[1]);
    servaddr.sin_port=htons(32000);
 
@@ -29,7 +29,7 @@ int main(int argc, char**argv)
    {
       sendto(sockfd,sendline,strlen(sendline),0,
              (struct sockaddr *)&servaddr,sizeof(servaddr));
-     mmm n=recvfrom(sockfd,recvline,10000,0,NULL,NULL);
+      n=recvfrom(sockfd,recvline,10000,0,NULL,NULL);
       recvline[n]=0;
       fputs(recvline,stdout);
    }
